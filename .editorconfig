@@ -1,0 +1,5 @@
+[*.{cs,vb}]
+dotnet_diagnostic.IDE0008.severity = none
+dotnet_diagnostic.IDE0058.severity = none
+csharp_style_namespace_declarations=file_scoped:suggestion
+dotnet_diagnostic.CA2016.severity = suggestion

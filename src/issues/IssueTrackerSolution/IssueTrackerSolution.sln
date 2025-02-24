@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueTracker.Api", "IssueTracker.Api\IssueTracker.Api.csproj", "{DE64C194-7BCC-4E7A-8BC4-353B8C111010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueTracker.Tests", "IssueTracker.Tests\IssueTracker.Tests.csproj", "{27FAEF27-995F-48A2-9766-A80086BF9C5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE64C194-7BCC-4E7A-8BC4-353B8C111010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE64C194-7BCC-4E7A-8BC4-353B8C111010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE64C194-7BCC-4E7A-8BC4-353B8C111010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE64C194-7BCC-4E7A-8BC4-353B8C111010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FAEF27-995F-48A2-9766-A80086BF9C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FAEF27-995F-48A2-9766-A80086BF9C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FAEF27-995F-48A2-9766-A80086BF9C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FAEF27-995F-48A2-9766-A80086BF9C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
