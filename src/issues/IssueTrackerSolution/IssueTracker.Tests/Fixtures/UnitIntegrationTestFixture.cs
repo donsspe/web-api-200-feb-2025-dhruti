@@ -6,6 +6,10 @@ using Weasel.Core;
 namespace IssueTracker.Tests.Fixtures;
 
 
+// You would create one of these to use for your UnitIntegration Tests
+// You don't use these on "unit" tests.
+// 
+
 public class UnitIntegrationTestFixture : IAsyncLifetime
 {
     public DocumentStore Store { get; private set; } = null!;
