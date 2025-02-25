@@ -25,4 +25,5 @@ public static class SeededSoftware
     public const string VisualStudioCode = "3497e4fc-5308-487a-9148-121520d5b1dd";
     public const string Rider = "04d269e5-d5a1-4281-a812-d066b415e3c0";
     public const string VisualStudio = "4f2ba3f7-8aaf-42ba-ac3e-a1a56fe82096";
+    public const string NotPresentInCatalog = "a664f619-fd1e-48a9-a2df-b4463b18f0ff";
 }

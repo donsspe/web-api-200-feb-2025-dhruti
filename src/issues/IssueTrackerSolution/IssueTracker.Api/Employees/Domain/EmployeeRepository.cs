@@ -1,6 +1,6 @@
 ﻿using Marten;
 
-namespace IssueTracker.Api.Employee.Domain;
+namespace IssueTracker.Api.Employees.Domain;
 
 public class EmployeeRepository(IDocumentSession session)
 {

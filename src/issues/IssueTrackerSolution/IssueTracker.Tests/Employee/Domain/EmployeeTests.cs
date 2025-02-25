@@ -1,6 +1,6 @@
 ﻿
 using System.Threading.Tasks;
-using IssueTracker.Api.Employee.Domain;
+using IssueTracker.Api.Employees.Domain;
 using IssueTracker.Tests.Fixtures;
 using Marten;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -21,7 +21,7 @@ public class EmployeeTests(UnitIntegrationTestFixture fixture)
 
 
         var repository = new EmployeeRepository(session); // a thing that handles persistence.
-        var sub = "bob@company";
+        var sub = "bob@company"; // this is in the JWT
         var emp = repository.Create(sub);
 
         // I want to save it to the database (we do this through the aggregate)

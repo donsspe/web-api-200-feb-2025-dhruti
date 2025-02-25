@@ -1,4 +1,4 @@
-﻿namespace IssueTracker.Api.Employee.Domain;
+﻿namespace IssueTracker.Api.Employees.Domain;
 
 // our "service" from last class.
 
