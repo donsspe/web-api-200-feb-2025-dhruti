@@ -10,21 +10,18 @@ public static class SubmittingAProblem
     public static async  Task<Ok> SubmitAsync(
         ProblemSubmitModel request,
         Guid softwareId,
-        IProvideEmployeesForTheApi employeeProvider,
+        IProcessCommandsForTheCurrentEmployee employeeCommandProcessor,
         CancellationToken token
         )
     {
-        // look up in the database to make sure we have the software with that id.
-        // if not, return an error (404)
+        
         
         var problem = new SubmitProblem(softwareId, request.Description);
-        //var emp = new Employee.Domain.Employee(null, null);
-        Employee emp = await employeeProvider.GetCurrentEmployeeAsync();
-        var problemSubmitted = emp.Process(problem);
-        await emp.SaveAsync();
-      
-        //var problemSubmitted = emp.Process(problem);
-     
+   
+        ProblemSubmitted response = await employeeCommandProcessor.ProcessProblemAsync(problem);
+
+
+
         return TypedResults.Ok();
     }
 }
@@ -32,7 +29,8 @@ public static class SubmittingAProblem
 
 public record ProblemSubmitModel(string Description);
 
-public interface IProvideEmployeesForTheApi
+public interface IProcessCommandsForTheCurrentEmployee
 {
-    Task<Employee> GetCurrentEmployeeAsync();
+ 
+    Task<ProblemSubmitted> ProcessProblemAsync(SubmitProblem problem);
 }
