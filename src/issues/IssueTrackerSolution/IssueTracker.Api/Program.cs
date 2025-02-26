@@ -1,5 +1,5 @@
 using IssueTracker.Api;
-
+using IssueTracker.Api.Middleware;
 using IssueTracker.Api.Utils;
 using Scalar.AspNetCore;
 
@@ -28,6 +28,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseMiddleware<GlobalChaosExceptionHandler>();
 app.MapIssueTracker();
 
 

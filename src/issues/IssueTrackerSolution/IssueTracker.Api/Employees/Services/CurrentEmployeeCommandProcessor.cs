@@ -1,20 +1,28 @@
-﻿using IssueTracker.Api.Employees.Api;
+﻿using System.Security.Claims;
+using IssueTracker.Api.Employees.Api;
 using IssueTracker.Api.Employees.Domain;
+using IssueTracker.Api.Middleware;
+using JasperFx.Core;
 
 namespace IssueTracker.Api.Employees.Services;
 
-public class CurrentEmployeeCommandProcessor(IHttpContextAccessor context) : IProcessCommandsForTheCurrentEmployee
+public class CurrentEmployeeCommandProcessor(IHttpContextAccessor context,
+    EmployeeRepository repository) : IProcessCommandsForTheCurrentEmployee
 {
-    public Task<ProblemSubmitted> ProcessProblemAsync(SubmitProblem problem)
+    public async Task<ProblemSubmitted> ProcessProblemAsync(SubmitProblem problem)
     {
-        var sub = context?.HttpContext?.User.Identity?.Name ?? throw new Exception("This should never happen");
-
-        // but we need the employee to do this,
         // we need the sub claim
-        // look it up in the database, if isn't there, create it
-        // if it is there, load, tell it process this command, 
-        // save it. 
-        // return the ProblemSubmitted.
-        throw new Exception();
+        var sub = context?.HttpContext?.User.FindFirstValue("sub") ?? throw new ChaosException("This should never happen");
+  
+        var employee = await repository.GetBySubAsync(sub);
+        if (employee is null)
+        {
+            employee = repository.Create(sub);
+            await employee.SaveAsync();
+            
+        }
+       var result = employee.Process(problem);
+       await employee.SaveAsync();
+        return result;
     }
 }

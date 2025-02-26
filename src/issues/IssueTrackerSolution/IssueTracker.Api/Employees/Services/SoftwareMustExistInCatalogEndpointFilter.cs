@@ -20,7 +20,7 @@ public class SoftwareMustExistInCatalogEndpointFilter(NpgsqlConnection connectio
             return TypedResults.NotFound();
         }
 
-        var sql = "SELECT EXISTS(SELECT 1 from Catalog Where Id=uuid(:id))";
+        var sql = "SELECT EXISTS(SELECT 1 from catalog Where Id=uuid(:id))";
         var paramMap = new { id = softwareId };
         var softwareExists = await connection.ExecuteScalarAsync<bool>(sql, paramMap);
         if(softwareExists == false)
