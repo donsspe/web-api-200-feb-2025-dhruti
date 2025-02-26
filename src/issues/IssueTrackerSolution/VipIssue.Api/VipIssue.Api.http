@@ -1,0 +1,9 @@
+@address = http://localhost:1339
+
+POST {{address}}/vips/notifications
+Content-Type: application/json
+
+{
+  "problem": "http://localhost:1337/employes/83989383/problems/8398398",
+  "description": "My stuff is broken again! Help!"
+}
