@@ -8,5 +8,5 @@ namespace VipIssue.Api;
 
 internal partial class JsonSourceGenerationRules : JsonSerializerContext
 {
-    
+
 }

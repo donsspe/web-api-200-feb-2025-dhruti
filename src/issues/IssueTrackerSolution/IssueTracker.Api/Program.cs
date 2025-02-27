@@ -28,7 +28,7 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference("docs", c =>
     {
         c.Title = "Issue Tracker API";
-      
+
     });
 }
 

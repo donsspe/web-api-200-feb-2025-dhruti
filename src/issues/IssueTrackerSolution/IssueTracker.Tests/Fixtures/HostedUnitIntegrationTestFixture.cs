@@ -74,12 +74,12 @@ public abstract class HostedUnitIntegrationTestFixture : IAsyncLifetime
     /// Override the services in the services collection. Called after ConfigureServices
     /// </summary>
     /// <param name="services"></param>
-    protected virtual void ConfigureTestServices(IServiceCollection services) {}
+    protected virtual void ConfigureTestServices(IServiceCollection services) { }
 
-protected virtual JwtSecurityStub GetAuthenticationStub()
-{
-    return new JwtSecurityStub();
-}
+    protected virtual JwtSecurityStub GetAuthenticationStub()
+    {
+        return new JwtSecurityStub();
+    }
 
     public async Task DisposeAsync()
     {

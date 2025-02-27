@@ -16,9 +16,9 @@ public class CreatingEmployees(UnitIntegrationTestFixture fixture) : IAsyncLifet
         await using var session = fixture.Store.LightweightSession();
 
         var user = new EmployeeCreated(_newId, _newSub);
-        
+
         session.Events.StartStream(user.Id, user);
-        
+
         await session.SaveChangesAsync();
 
         _userReadModel = (await session.Events.AggregateStreamAsync<Employee>(user.Id))!;
@@ -28,13 +28,13 @@ public class CreatingEmployees(UnitIntegrationTestFixture fixture) : IAsyncLifet
     {
         return Task.CompletedTask;
     }
-    
+
     [Fact]
     public void HasCorrectIdAndSub()
     {
         _userReadModel.Sub.ShouldBe(_newSub);
         _userReadModel.Id.ShouldBe(_newId);
-       
+
     }
 
     [Fact]
@@ -47,6 +47,6 @@ public class CreatingEmployees(UnitIntegrationTestFixture fixture) : IAsyncLifet
     {
         _userReadModel.LastApiUsage.ShouldBe(DateTimeOffset.UtcNow, TimeSpan.FromSeconds(1));
     }
-    
+
 
 }

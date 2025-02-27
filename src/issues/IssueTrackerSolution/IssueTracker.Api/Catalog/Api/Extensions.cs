@@ -1,6 +1,6 @@
-using Npgsql;
 using Dapper;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Npgsql;
 
 namespace IssueTracker.Api.Catalog.Api;
 
@@ -10,7 +10,7 @@ public static class Extensions
     {
         endpoints.MapGet("/catalog", GetCatalogAsync).WithTags("Catalog").WithDescription("Get all catalog items")
             .WithDisplayName("Catalog Items");
-        
+
         return endpoints;
     }
 

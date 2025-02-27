@@ -13,7 +13,7 @@ public class SoftwareMustExistInCatalogEndpointFilter(NpgsqlConnection connectio
         // if it is there, check to see if we have that software, and if it's there, do nothing (next(context))
         // if it isn't, return a 404.
         var softwareId = context.HttpContext.GetRouteValue("softwareId");
-         if(softwareId is null)
+        if (softwareId is null)
         {
             logger.LogError("The filter was used on a path without a softwareId");
 
@@ -23,7 +23,7 @@ public class SoftwareMustExistInCatalogEndpointFilter(NpgsqlConnection connectio
         var sql = "SELECT EXISTS(SELECT 1 from catalog Where Id=uuid(:id))";
         var paramMap = new { id = softwareId };
         var softwareExists = await connection.ExecuteScalarAsync<bool>(sql, paramMap);
-        if(softwareExists == false)
+        if (softwareExists == false)
         {
             return TypedResults.NotFound("Software not in the catalog, can't create a problem for it");
         }

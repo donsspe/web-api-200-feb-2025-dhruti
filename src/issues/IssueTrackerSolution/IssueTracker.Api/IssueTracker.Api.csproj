@@ -8,6 +8,13 @@
   </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Employees\Domain\**" />
+      <Content Remove="Employees\Domain\**" />
+      <EmbeddedResource Remove="Employees\Domain\**" />
+      <None Remove="Employees\Domain\**" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Dapper" Version="2.1.66" />
         <PackageReference Include="FluentValidation" Version="11.11.0" />
         <PackageReference Include="Marten.AspNetCore" Version="7.37.3" />
@@ -15,10 +22,6 @@
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
         <PackageReference Include="Npgsql.DependencyInjection" Version="9.0.2" />
         <PackageReference Include="Scalar.AspNetCore" Version="2.0.18" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Employees\Domain\" />
     </ItemGroup>
 
 </Project>

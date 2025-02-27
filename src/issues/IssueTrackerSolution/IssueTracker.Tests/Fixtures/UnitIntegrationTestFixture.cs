@@ -16,11 +16,11 @@ public class UnitIntegrationTestFixture : IAsyncLifetime
 
     private readonly PostgreSqlContainer _container = new PostgreSqlBuilder()
         .Build();
-  
+
     public async Task InitializeAsync()
     {
         await _container.StartAsync();
-        
+
         Store = DocumentStore.For(opts =>
         {
             opts.Connection(_container.GetConnectionString());
@@ -28,10 +28,10 @@ public class UnitIntegrationTestFixture : IAsyncLifetime
             opts.GeneratedCodeMode = TypeLoadMode.Auto;
             opts.ApplicationAssembly = GetType().Assembly;
         });
-        
+
     }
 
-    public  Task DisposeAsync()
+    public Task DisposeAsync()
     {
         Store.Dispose();
         return _container.DisposeAsync().AsTask();

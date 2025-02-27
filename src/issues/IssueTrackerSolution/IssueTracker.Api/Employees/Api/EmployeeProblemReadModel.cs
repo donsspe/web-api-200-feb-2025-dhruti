@@ -2,7 +2,7 @@ namespace IssueTracker.Api.Employees.Api;
 
 public record EmployeeProblemReadModel
 {
- 
+
     public Guid Id { get; set; }
 
     public Guid EmployeeId { get; set; }
@@ -24,5 +24,7 @@ public record EmployeeProblemReadModel
             Status = "Submitted"
         };
     }
-    
+
+    public static bool ShouldDelete(ProblemCancelledByUser _) => true;
+
 }

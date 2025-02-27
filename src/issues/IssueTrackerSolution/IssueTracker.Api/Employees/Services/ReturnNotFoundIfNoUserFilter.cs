@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-
-namespace IssueTracker.Api.Employees.Services;
+﻿namespace IssueTracker.Api.Employees.Services;
 
 /// <summary>
 ///  For a demo.
@@ -11,7 +9,7 @@ public class ReturnNotFoundIfNoUserFilter : IEndpointFilter
 {
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
     {
-        if(context.HttpContext.User.Identity is { IsAuthenticated: false })
+        if (context.HttpContext.User.Identity is { IsAuthenticated: false })
         {
             return TypedResults.NotFound();
         }

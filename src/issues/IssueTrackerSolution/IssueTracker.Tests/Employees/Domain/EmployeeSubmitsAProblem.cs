@@ -21,12 +21,12 @@ public class EmployeeSubmitsAProblem(UnitIntegrationTestFixture fixture) : IAsyn
 
         var user = new EmployeeCreated(_employeeId, _newSub);
         session.Events.StartStream(user.Id, user);
-      
+
         var problem = new EmployeeSubmittedAProblem(_problemId, _employeeId, _softwareId, _description);
         session.Events.StartStream(_problemId, problem);
         await session.SaveChangesAsync();
-        
-         _problemReadModelReadModel = (await session.Events.AggregateStreamAsync<EmployeeProblemReadModel>(_problemId))!;
+
+        _problemReadModelReadModel = (await session.Events.AggregateStreamAsync<EmployeeProblemReadModel>(_problemId))!;
     }
 
     public Task DisposeAsync()

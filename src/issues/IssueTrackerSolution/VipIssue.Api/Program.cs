@@ -1,5 +1,3 @@
-using System.Formats.Tar;
-using System.Text.Json.Serialization;
 using Marten;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,7 +33,8 @@ app.MapPost("/vips/notifications", async (VipIssueCreateModel request, IDocument
     return TypedResults.Created($"/vip/notifications/{response.Id}", response);
 });
 
-app.MapGet("/vip/notifications/{id:guid}", async (Guid id, IDocumentSession session) => {
+app.MapGet("/vip/notifications/{id:guid}", async (Guid id, IDocumentSession session) =>
+{
 
     var response = await session.LoadAsync<VipIssueResponseModel>(id);
 

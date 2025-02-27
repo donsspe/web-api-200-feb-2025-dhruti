@@ -24,7 +24,7 @@ public class NotifyingOfVipIssue
         var locationHeader = postResponse.Context.Response.Headers.Location.First();
         Assert.NotNull(locationHeader);
         Assert.StartsWith("/vip/notifications/", locationHeader);
-      
+
 
         Assert.NotNull(postResponse);
 

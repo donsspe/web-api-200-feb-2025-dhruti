@@ -16,7 +16,7 @@ public static class Scripts
                                       ('7d089f74-4945-4c9a-bf1f-f952b293b3ec',	'Docker Desktop',	'Container Runtime, Builder, and UI ',	'Docker'),
                                       ('4f2ba3f7-8aaf-42ba-ac3e-a1a56fe82096',	'Visual Studio',	'IDE For Windows developers',	'Microsoft');
                                       """;
-    
+
 }
 
 public static class SeededSoftware

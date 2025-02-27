@@ -56,9 +56,9 @@ public record Employee
     public static Employee Apply(EmployeeHitApi _, Employee user)
     {
         return user with { LastApiUsage = DateTimeOffset.UtcNow };
-    } 
+    }
 }
 
 public record EmployeeCreated(Guid Id, string Sub);
 
-public  record EmployeeHitApi(Guid Id);
+public record EmployeeHitApi(Guid Id);
