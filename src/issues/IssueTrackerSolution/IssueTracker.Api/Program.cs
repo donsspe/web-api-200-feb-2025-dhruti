@@ -14,6 +14,10 @@ builder.AddIssueTrackerServices();
 
 var app = builder.Build();
 
+
+
+app.UseMiddleware<GlobalChaosExceptionHandler>();
+
 app.UseAuthentication();
 app.UseAuthorization();
 // Configure the HTTP request pipeline.
@@ -28,9 +32,9 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseMiddleware<GlobalChaosExceptionHandler>();
-app.MapIssueTracker();
+var routes = app.MapGroup("");
 
+routes.MapIssueTracker();
 
 
 app.Run();

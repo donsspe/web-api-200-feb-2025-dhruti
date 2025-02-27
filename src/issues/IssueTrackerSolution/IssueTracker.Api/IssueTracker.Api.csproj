@@ -17,4 +17,8 @@
         <PackageReference Include="Scalar.AspNetCore" Version="2.0.18" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Employees\Domain\" />
+    </ItemGroup>
+
 </Project>

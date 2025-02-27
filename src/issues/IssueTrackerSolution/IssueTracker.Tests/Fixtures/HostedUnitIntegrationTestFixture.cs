@@ -76,10 +76,10 @@ public abstract class HostedUnitIntegrationTestFixture : IAsyncLifetime
     /// <param name="services"></param>
     protected virtual void ConfigureTestServices(IServiceCollection services) {}
 
-protected virtual AuthenticationStub GetAuthenticationStub()
-    {
-        return new();
-    }
+protected virtual JwtSecurityStub GetAuthenticationStub()
+{
+    return new JwtSecurityStub();
+}
 
     public async Task DisposeAsync()
     {

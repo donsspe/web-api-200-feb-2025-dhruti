@@ -13,7 +13,7 @@ public class GlobalChaosExceptionHandler(
     {
         try
         {
-            await next(context);
+            await next(context); // notices that I am doing this FIRST
         }
         catch (ChaosException ex)
         {
